@@ -4,7 +4,8 @@
 	}
 
 	$categories = [
-		'value' => 'Text'
+		'Sports' => 'Sports',
+		'Health' => 'Health'
 	];
 ?>
 <div class="container">
@@ -36,12 +37,12 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						{!! Form::select('PickCategory', $categories, '', ["style" => "width:100%"]) !!}
+						{!! Form::select('PickCategory', $categories, '', ["id" => "PickCategory", "style" => "width:100%"]) !!}
 					</div>
 				</div>
 
 				<div class="scrollArea row" style="height:200px; overflow:auto;">
-					<div class="col-sm-6 content>">
+					<div class="col-sm-12" id="searchByCatResult">
 						
 					</div>
 				</div>

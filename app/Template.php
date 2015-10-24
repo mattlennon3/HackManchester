@@ -16,7 +16,7 @@ class Template extends Model
     protected $table = 'Template';
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that are mass assignable. 
      *
      * @var array
      */
@@ -28,4 +28,8 @@ class Template extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function scopeGetChallengesByCat($query, $cat){
+        return $query->where('Template.Category', '=', $cat);
+    }
 }

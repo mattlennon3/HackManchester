@@ -38,3 +38,6 @@ Route::get('/facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebook
     return '<a href="' . $login_link . '">Log in with Facebook</a>';
 });
 
+// Header-Challenge Module
+// Post requests for ajax
+Route::post('/getChallengesByCat', 'CreateChallengeController@getChallenges');
