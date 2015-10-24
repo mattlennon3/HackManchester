@@ -8,5 +8,5 @@ use App\Http\Controllers\Controller;
 
 class NavbarController extends Controller
 {
-    //
+
 }
