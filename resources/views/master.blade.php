@@ -16,7 +16,6 @@
     </head>
     <body>
         @include('layout.navbar')
-        @include('header.home-header')
 
         @yield('content')
         
