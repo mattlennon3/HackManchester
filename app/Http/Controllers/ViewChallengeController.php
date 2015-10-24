@@ -17,7 +17,11 @@ class ViewChallengeController extends Controller
     public function returnResults(Request $request){
 
     	//$request[0] = 12;
-    	return Template::all();
+    	$result = Template::join('User', 'Template.CreatorID','=', 'User.ID')->
+    		select('Title', 'Description', 'Category', 'User.Name')->get();
+    	
+    	return $result;
+    							//->join('User', 'Template.CreatorID', 'User.ID')->get();
 
     	//$result = App\Template::join('Challenge', 'Template.ID', '=', 'Challenge.TemplateID')
     		//->where('Template.Title', 'LIKE', '%'.$request.'%')->get();

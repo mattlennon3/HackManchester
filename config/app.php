@@ -137,7 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
-        SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
+        //SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -196,7 +196,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         "Form"      => Illuminate\Html\FormFacade::class,
         "HTML"      => Illuminate\Html\HtmlFacade::class,
-        'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
+        //'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
         //'Google'    => Apipack\Eden\Facade\Google::class,
         //'Facebook'  => Apipack\Eden\Facade\Facebook::class,
         //'Instagram' => Apipack\Eden\Facade\Instagram::class,
