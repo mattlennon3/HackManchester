@@ -19,6 +19,7 @@ Route::get('/dashboard', 'DashboardController@show');
 
 // Challenges View Page
 Route::get('/challenges', 'ViewChallengeController@show');
+Route::post('/challenges', 'ViewChallengeController@returnResults');
 
 // Register Charity Page
 Route::get('/charity', function(){
