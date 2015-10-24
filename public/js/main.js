@@ -22,8 +22,8 @@ $(".NominateBack").click(function(){
 
 $(document).ready(function(){
 
-	$(".initial").hide();
-    $(".nominateFriend").show();
+	/*$(".initial").hide();
+    $(".nominateFriend").show();*/
 
 	$('#PickCategory').bind('change', function(){
 		var text = $(this).find("option:selected").text();
