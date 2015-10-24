@@ -11,25 +11,21 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="sub-title"><h3>Create Your Own</h3></div>
-				
-				{!! Form::open(["action" => "CreateChallengeController@createChallenge"]) !!}
 
-					<div class="form-group row">
-						{!! Form::label('Title', 'Title', sm(3)) !!}
-						{!! Form::text('Title', '', sm(6)) !!}
-					</div>
+				<div class="form-group row">
+					{!! Form::label('Title', 'Title', sm(3)) !!}
+					{!! Form::text('Title', '', sm(6)) !!}
+				</div>
 
-					<div class="form-group row">
-						{!! Form::label('Description', 'Description', sm(3)) !!}
-						{!! Form::text('Description', '', sm(6)) !!}
-					</div>
+				<div class="form-group row">
+					{!! Form::label('Description', 'Description', sm(3)) !!}
+					{!! Form::text('Description', '', sm(6)) !!}
+				</div>
 
-					<div class="form-group row">
-						{!! Form::label('Category', 'Category', sm(3)) !!}
-						{!! Form::select('Category', $categories, '', sm(6)) !!}
-					</div>
-				
-				{!! Form::close() !!}
+				<div class="form-group row">
+					{!! Form::label('Category', 'Category', sm(3)) !!}
+					{!! Form::select('Category', $categories, '', sm(6)) !!}
+				</div>
 
 			<div class="content"></div>
 		</div>
@@ -40,7 +36,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						{!! Form::select('PickCategory', $categories, '', ["style" => "width:100%"]) !!}	
+						{!! Form::select('PickCategory', $categories, '', ["style" => "width:100%"]) !!}
 					</div>
 				</div>
 
