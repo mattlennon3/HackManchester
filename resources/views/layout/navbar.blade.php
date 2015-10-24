@@ -7,6 +7,42 @@
         $_SESSION['logged'] = 1;
     }
 ?>
+<style type="text/css">
+    #formLogin{
+        padding:17px;
+        width:300px !important;
+    }
+    
+    .hidden {
+        display:none !important;
+    }
+    
+    .shown{
+        display:block !important;
+    }
+    
+    @media only screen and (max-width: 768px){
+        #formLogin{
+            width:100% !important;
+        }    
+    }
+</style>
+<script type="text/javascript">
+    var hidden = true;
+    function displayLoginBox(){
+
+
+if ($("#confirmDiv:hidden")){
+
+        $("#confirmDiv").show();
+
+}
+else if($("#login_Box_Div:visible")){
+
+        $("#confirmDiv").hide(); 
+}
+}
+</script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,7 +64,25 @@
         </ul>
       <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION['logged'] == 0){ //if user logged out ?>             
-            <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+<!--            <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>-->
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <form class="form" id="formLogin"> 
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="form-group" id="confirmDiv" hidden>
+                    <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm Password">
+                </div>
+                <button type="button" id="btnLogin" class="btn">Login</button>
+                <button type="button" id="btnRegister" class="btn" onclick="javascript:displayLoginBox()">Register</button>
+              </form>
+          </ul>
+        </li>
             <?php } else { //if logged in?>
             <li><a>Dashboard</a></li>
             <li><a>Sign Out</a></li>
