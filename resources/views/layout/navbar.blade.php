@@ -29,18 +29,12 @@
 </style>
 <script type="text/javascript">
     var hidden = true;
+    var register = false;
     function displayLoginBox(){
-
-
-if ($("#confirmDiv:hidden")){
-
-        $("#confirmDiv").show();
-
-}
-else if($("#login_Box_Div:visible")){
-
-        $("#confirmDiv").hide(); 
-}
+        if ($("#confirmDiv:hidden")){
+            $("#confirmDiv").show();
+            register = true;
+        }
 }
 </script>
 <nav class="navbar navbar-default">
@@ -79,7 +73,7 @@ else if($("#login_Box_Div:visible")){
                     <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm Password">
                 </div>
                 <button type="button" id="btnLogin" class="btn">Login</button>
-                <button type="button" id="btnRegister" class="btn" onclick="javascript:displayLoginBox()">Register</button>
+                <a onclick="javascript:displayLoginBox()">Register</a>
               </form>
           </ul>
         </li>
