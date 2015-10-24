@@ -9,12 +9,12 @@ $(document).ready(function(){
 		$.ajax({
 			url:"challenges",
 			method:"post",
-			data: { num : 5 },
+			data: { title : text },
 			success: function(data){
 				console.log(data)
 			}
 		}).fail(function(err){
-			console.log(err);
+			console.log(err.responseText);
 		});
 
 	});
