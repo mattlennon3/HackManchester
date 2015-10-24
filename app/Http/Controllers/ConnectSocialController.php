@@ -8,5 +8,5 @@ use App\Http\Controllers\Controller;
 
 class ConnectSocialController extends Controller
 {
-    //
+    $facebook = new Facebook(Config::get('facebook'));
 }

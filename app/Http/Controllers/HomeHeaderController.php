@@ -8,5 +8,7 @@ use App\Http\Controllers\Controller;
 
 class HomeHeaderController extends Controller
 {
-    //
+    public function CreateChallenge(){
+    	
+    }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-
+    use SammyK\LaravelFacebookSdk\SyncableGraphNodeTrait;
     /**
      * The database table used by the model.
      *
@@ -30,4 +30,8 @@ class User extends Model
      * @var array
      */
     protected $hidden = ['password'];
+
+    protected static $graph_node_field_aliases = [
+        'id' => 'FB',
+    ];
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "87391a9ed934cd8d492d83ee60662e8f",
-    "content-hash": "09a48dc7cddb0f6d91b8114087caaf70",
+    "hash": "c96fc5c91ea0c02d30b58d7e4be6a111",
+    "content-hash": "28ffb40ec54c52e64f925d8e8f9e9aba",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1843,6 +1843,61 @@
             "time": "2015-06-14 21:17:01"
         },
         {
+            "name": "facebook/php-sdk-v4",
+            "version": "5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
+                "reference": "cc551f793492fa92ca107d596a6f1e3a62fb894c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/cc551f793492fa92ca107d596a6f1e3a62fb894c",
+                "reference": "cc551f793492fa92ca107d596a6f1e3a62fb894c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk-v4/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/facebook-php-sdk-v4",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2015-10-13 22:11:58"
+        },
+        {
             "name": "fzaninotto/faker",
             "version": "v1.5.0",
             "source": {
@@ -2591,6 +2646,64 @@
                 "xunit"
             ],
             "time": "2015-10-02 06:51:40"
+        },
+        {
+            "name": "sammyk/laravel-facebook-sdk",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SammyK/LaravelFacebookSdk.git",
+                "reference": "3b79a86b35570e53c73af36296eaa4bd57c65c31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SammyK/LaravelFacebookSdk/zipball/3b79a86b35570e53c73af36296eaa4bd57c65c31",
+                "reference": "3b79a86b35570e53c73af36296eaa4bd57c65c31",
+                "shasum": ""
+            },
+            "require": {
+                "facebook/php-sdk-v4": "~5.0",
+                "illuminate/auth": "~5.1",
+                "illuminate/config": "~5.1",
+                "illuminate/database": "~5.1",
+                "illuminate/routing": "~5.1",
+                "illuminate/session": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SammyK\\LaravelFacebookSdk\\": "src/LaravelFacebookSdk"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sammy Kaye Powers",
+                    "email": "me@sammyk.me",
+                    "homepage": "http://sammyk.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fully unit tested Facebook SDK v5 integration for Laravel 5",
+            "homepage": "https://github.com/SammyK/LaravelFacebookSdk",
+            "keywords": [
+                "facebook",
+                "facebook query builder",
+                "facebook sdk v4",
+                "laravel",
+                "sdk"
+            ],
+            "time": "2015-09-03 21:12:59"
         },
         {
             "name": "sebastian/comparator",
