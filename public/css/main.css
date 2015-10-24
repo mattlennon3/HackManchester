@@ -10,3 +10,14 @@
 .selectCharity {
     display: none;
 }
+
+#selectedFriends {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.emailLabel, .glyphicon {
+	margin: 1px;
+}

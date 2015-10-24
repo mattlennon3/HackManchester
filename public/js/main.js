@@ -1,4 +1,3 @@
-
 $(".createChallengeButton").click(function(){
     $(".initial").hide();
     $(".connect").show();
@@ -15,12 +14,16 @@ $(".NominateButton").click(function(){
     $(".nominateFriend").hide();
     $(".selectCharity").show();
 });
+$(".NominateBack").click(function(){
+	$(".nominateFriend").hide();
+	$(".createTemplate").show();
+});
 
 
 $(document).ready(function(){
 
-	/*$(".initial").hide();
-    $(".createTemplate").show();*/
+	$(".initial").hide();
+    $(".nominateFriend").show();
 
 	$('#PickCategory').bind('change', function(){
 		var text = $(this).find("option:selected").text();
@@ -53,6 +56,9 @@ $(document).ready(function(){
 	});
 });
 
+/*
+	Create-Challenge
+*/
 function pickThis(cID){
 	var title = $('#c'+cID+ ' > .challenge-title').text();
 	var desc = $('#c'+cID+ ' > .challenge-desc').text();
@@ -61,4 +67,23 @@ function pickThis(cID){
 	$('#Title').val(title);
 	$('#Description').val(desc);
 	$('#Category').val(cat);
+}
+
+/*
+	Nominate-Friend
+*/
+function addEmail(){
+	var email = $('#FriendEmail').val();
+	$('#FriendEmail').val('');
+
+	var removeBtn = $('<i></i>').attr({
+		'class': 'glyphicon glyphicon-remove',
+		'onclick' : 'removeEmail(this)'
+	});
+	var emailSpan = $('<span></span>').attr('class','label label-primary emailLabel').append(email).append(removeBtn);
+	$('#selectedFriends').append(emailSpan);
+}
+
+function removeEmail(obj){
+	$(obj).parent().remove();
 }
