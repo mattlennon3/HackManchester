@@ -1,0 +1,1 @@
+{{-- This is initial header content, with the "create challenge" button --}}
