@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 Select friend you would like to Challenge
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_donations">
@@ -25,47 +26,21 @@ Select friend you would like to Challenge
 		'Twitter' => 'Twitter'
 	];
 ?>
+=======
+>>>>>>> ae66edafca177b41c3964d0db68ba81ca39b5716
 <div class="container">
 	<div class="row">
-		<div class="col-sm-6 form-horizontal">
-			<div class="sub-title"><h3>Nominate Friends!</h3></div>
+		<div class="col-sm-10">
+			<div class="sub-title"><h3>Nominate Friend!</h3></div>
 
 			<div class="form-group">
-					{!! Form::label('FriendEmail', 'Email', ['class'=>'col-sm-2 control-label']) !!}
+					{!! Form::label('', 'Select friend you would like to Challenge', ['class'=>'col-sm-5 control-label']) !!}
 				<div class="col-sm-5">
-					{!! Form::text('FriendEmail', '', ['class'=>'form-control']) !!}
-				</div>
-				<div class="col-sm-2">
-					{!! Form::button('Add', ['class' => 'btn btn-default btn-sm form-control col-sm-5', 'onclick' => 'addEmail()']) !!}
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<div class="col-sm-12" id="selectedFriends">
-					<!-- Selected friends added by JS -->
+					<select class="form-control friendlist" data-style="btn-primary" id="friendlist"> 
+					  <option value="volvo">Select Friend</option>
+					</select>
 				</div>
 			</div>
-
-			<div class="content"></div>
-		</div>
-
-
-		<div class="col-sm-6">
-			<div class="sub-title"><h3>Invite from Social Media</h3></div>
-
-			<div class="row">
-				<div class="col-sm-6">
-					{!! Form::select('PickSocialMedia', $socialMedia, '', ["class" => "form-control", "id" => "PickSocialMedia", "style" => "width:100%"]) !!}
-				</div>
-			</div>
-
-			<div class="scrollArea row" style="height:200px; overflow:auto;">
-				<div class="col-sm-12" id="searchByCatResult">
-					
-				</div>
-			</div>
-
-			<div class="content"></div>
 		</div>
 	</div>
 

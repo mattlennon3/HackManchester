@@ -28,6 +28,14 @@
             width:100% !important;
         }    
     }
+    
+    #logo{
+        height: 50px;
+    }
+    
+    .navbar-default{
+        /*background-color:#d3d3d3;*/
+    }
 </style>
 <script type="text/javascript">
     var hidden = true;
@@ -65,7 +73,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Challengr </a>
+      <a class="navbar-brand" href="/"><img src="img/challengr-blue-sm.png" id="logo" alt="Challengr" /> </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

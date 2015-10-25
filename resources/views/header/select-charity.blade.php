@@ -34,7 +34,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-5">Nominated</label>
 						<div class="col-sm-6">
-							<input class="form-control" style="text-align:right" readonly="true" id="friendCount" value="0">
+							<input class="form-control" style="text-align:right" readonly="true" id="friendCount" value="1">
 						</div>
 					</div>
 

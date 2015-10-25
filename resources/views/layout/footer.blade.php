@@ -4,7 +4,7 @@
         padding-bottom:5px;
     }
     
-    .footer-container>p {
+    .container>p {
         margin-left:auto;
         margin-right:auto;
     }
@@ -33,8 +33,8 @@
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-inside">
                 <p id="footer-links">
-                    <a>Register your Charity</a><br/>
-                    <a>About Us</a><br/><br/>
+                    <a href="/charity">Register your Charity</a><br/>
+                    <a href="/about">About Us</a><br/><br/>
                     <a href="mailto:matthew.lennon@webappuk.com"><span class="glyphicon glyphicon-envelope"></span> matthew.lennon@webappuk.com</a><br/>
                     <a href="tel:01111 011551"><span class="glyphicon glyphicon-earphone"></span> 01111 011551</a>
                 </p>
@@ -48,7 +48,9 @@
                     OL4 1TD
                 </p>
             </div>
-            <p id="copyright">&copy; CodeBlackIPs 2015</p>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p id="copyright">&copy; CodeBlackIPs 2015</p>
+            </div>
         </div>
     </div>
 </nav>

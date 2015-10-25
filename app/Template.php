@@ -15,6 +15,8 @@ class Template extends Model
      */
     protected $table = 'Template';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable. 
      *

@@ -11,8 +11,11 @@
 |
 */
 
-// Home
+// Home 
 Route::get('/', 'HomeController@show');
+Route::post('/', 'HomeController@saveUser');
+
+Route::post('/createChallenge','HomeController@createChallenge');
 
 // Dashboard Module
 Route::get('/dashboard', 'DashboardController@show');
@@ -23,7 +26,6 @@ Route::get('/foryou', 'ForYouController@getForYou');
 // Challenges View Page
 Route::get('/challenges', 'ViewChallengeController@show');
 Route::post('/challenges', 'ViewChallengeController@returnResults');
-Route::post('/', 'HomeController@saveUser');
 //Route::post('/', 'HomeController@getFriends');
 
 // Register Charity Page
@@ -34,13 +36,6 @@ Route::get('/charity', function(){
 // About Charity Page
 Route::get('/about', function(){
 	return view('static.about');
-});
-Route::get('/boo', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) {
-    			$login_link = $fb
-            ->getRedirectLoginHelper()
-            ->getLoginUrl('http://localhost/Hackmanchester/public', ['email', 'user_events']);
-
-    return '<a href="' . $login_link . '">Log in with Facebook</a>';
 });
 
 // Header-Challenge Module

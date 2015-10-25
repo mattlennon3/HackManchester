@@ -15,6 +15,8 @@ class Challenge extends Model
      */
     protected $table = 'Challenge';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

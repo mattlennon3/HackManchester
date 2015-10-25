@@ -15,6 +15,8 @@ class Charity extends Model
      */
     protected $table = 'Charity';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

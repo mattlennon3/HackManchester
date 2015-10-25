@@ -15,6 +15,8 @@ class ChallengedUser extends Model
      */
     protected $table = 'ChallengedUser';
 
+    public $timestamps = false;
+    
     /**
      * The attributes that are mass assignable.
      *
