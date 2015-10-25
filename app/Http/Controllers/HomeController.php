@@ -62,7 +62,7 @@ class HomeController extends Controller
             'Title' => $request['Title'], 
             'Description' => $request['Description'], 
             'Category' => $request['Category'], 
-            'CreatorID' => $userID
+            'CreatorID' => $this->newUser['id'];
         ]);
 
         $newChallenge = new Challenge;
