@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 					var id = "collapse" + index;
                     var html ='<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#';
-                    html += id + '">' + data[index].Title +'</a></h4></div><div id="' + id +'" class="panel-collapse collapse';
+                    html += id + '">' + data[index].Title +'</a><a style="align:right">' + data[index].BountyAmount + '</a></h4></div><div id="' + id +'" class="panel-collapse collapse';
                     if(index == 0){
                         html+= " in";
                     }
