@@ -20,6 +20,8 @@ Route::get('/dashboard', 'DashboardController@show');
 // Challenges View Page
 Route::get('/challenges', 'ViewChallengeController@show');
 Route::post('/challenges', 'ViewChallengeController@returnResults');
+Route::post('/', 'HomeController@saveUser');
+//Route::post('/', 'HomeController@getFriends');
 
 // Register Charity Page
 Route::get('/charity', function(){
@@ -30,10 +32,10 @@ Route::get('/charity', function(){
 Route::get('/about', function(){
 	return view('static.about');
 });
-Route::get('/facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) {
-    $login_link = $fb
+Route::get('/boo', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) {
+    			$login_link = $fb
             ->getRedirectLoginHelper()
-            ->getLoginUrl('https://exmaple.com/facebook/callback', ['email', 'user_events']);
+            ->getLoginUrl('http://localhost/Hackmanchester/public', ['email', 'user_events']);
 
     return '<a href="' . $login_link . '">Log in with Facebook</a>';
 });

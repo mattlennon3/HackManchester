@@ -11,7 +11,11 @@ class DashboardController extends Controller
 {
     public function show()
     {
-    	$user = User::all();
-    	return view('dashboard.dashboard', compact('user'));
+    	//$user = User::all();
+    	$challenges = User::where('id', array(2))->get();
+    	return view('dashboard.dashboard')
+    	->with('challenges', $challenges);
+    
     }
+
 }

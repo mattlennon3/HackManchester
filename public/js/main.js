@@ -18,6 +18,8 @@ $(".NominateButton").click(function(){
 
 
 $(document).ready(function(){
+
+
 	$('#PickCategory').bind('change', function(){
 		var text = $(this).find("option:selected").text();
 
@@ -40,3 +42,4 @@ $(document).ready(function(){
 		});
 	});
 });
+
