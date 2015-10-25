@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron">
   <div class="initial">
     @include('header.initial')

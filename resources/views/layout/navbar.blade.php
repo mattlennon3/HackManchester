@@ -71,7 +71,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-header">
       <ul class="nav navbar-nav navbar-left">
-            <li><a>About Us</a></li>
+            <li><a href="/about">About Us</a></li>
             <li><a href="/challenges">Challenges</a></li>          
         </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -94,7 +94,7 @@
                 </div>
                 <input type="hidden" id ="register" name="register" value=0>
                 <button type="submit" id="btnLogin" class="btn">Login</button>
-                <a onclick="javascript:displayLoginBox()" id="regText">Register</a>
+                <a onclick="javascript:displayLoginBox()" id="regText" href="#">Register</a>
                 <?php if(isset($_SESSION['error']) and $_SESSION['error'] == 1){
                         echo '<script type="text/javascript">displayLoginBox()</script>';
                         echo '<p class="bg-danger" id="errMsg">Your passwords do not match!</p>';
