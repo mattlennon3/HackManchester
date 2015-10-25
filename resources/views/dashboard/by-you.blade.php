@@ -1,6 +1,11 @@
 <div class="bs-example">
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
+
+
+
+
+
             @foreach($challenges as $chal)
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -18,3 +23,5 @@
         
     </div>
 </div>
+
+{!! HTML::script('js/byyou.js') !!}

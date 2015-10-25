@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@show');
 
 // Dashboard Module
 Route::get('/dashboard', 'DashboardController@show');
+Route::get('/byyou', 'ByYouController@getByYou');
 
 // Challenges View Page
 Route::get('/challenges', 'ViewChallengeController@show');
