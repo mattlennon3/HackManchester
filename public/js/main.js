@@ -20,6 +20,13 @@ $(".NominateBack").click(function(){
 });
 $(".CharityButton").click(function(){
 
+	var emailFriends = $('#selectedFriends > .email');
+	var emails = [];
+	$.each(emailFriends, function(index, item){
+		emails.push($(item).text());
+	});
+	console.log(emails);
+
     var templateData = {
     	Title : $('#Title').val(),
     	Description : $('#Description').val(),
@@ -102,7 +109,7 @@ function addEmail(){
 		'class': 'glyphicon glyphicon-remove',
 		'onclick' : 'removeEmail(this)'
 	});
-	var emailSpan = $('<span></span>').attr('class','label label-primary emailLabel').append(email).append(removeBtn);
+	var emailSpan = $('<span></span>').attr('class','label label-primary label-md email').append(email).append(removeBtn);
 	$('#selectedFriends').append(emailSpan);
 
 	friendCount++;
@@ -141,7 +148,7 @@ function displayCharity(obj){
 }
 
 function updateFriendCounter(){
-	$('#friendCount').text(friendCount);
+	$('#friendCount').val(friendCount);
 }
 
 function updateBountyPerPerson(){
