@@ -6,10 +6,13 @@ $(document).ready(function(){
 	$("#search").bind('click', function(){
 		var text = $("#searchtext").val();
 		var category = $("#dropdownMenu1").text();
-		console.log("Category: " + category)
-		if (category == "Categories"){
-			category = "";
+		if (text.trim() != ''){
+			text = null;
 		}
+		if (category == ("Categories" || "All")){
+			category = null;
+		}
+		console.log("Category: " + category)
 
 		$.ajax({
 			url:"challenges",
@@ -18,22 +21,29 @@ $(document).ready(function(){
 					category : category
 			 },
 			success: function(data){
+			
+				// need to reset search
+				var result = $('#sresults').children(':first');
+				$('#sresults').empty();
+				$('#sresults').append(result);
+
 				console.log(data);
-
+				$('#sresults').children(':first').show();
 				$.each(data, function(index, element){
-					$('#title'+index).attr('data-parent', '#accordiondata'+index);
-					$('#title'+index).text(data[index].Title)
-					$('#accordion'+index).clone().attr('id','accordion'+(index+1)).insertAfter('#accordion'+index);
-
+					if (index>30) {
+						console.log("too many .... AHHHH");
+					}
+					// NO IDEA WHY THIS SHIT DOESNT REMOVE ATTR DATA-PARENT, breaks acordion.
+					$('#accordion'+index).find('.panel-title').removeAttr('data-parent', ('#accordiondata'+index));
+					//$('#accordion'+index).find('.panel-title').attr('data-parent', ('#accordiondata'+index));
+					$('#accordion'+index).find('.panel-title').children().text(data[index].Title + " - " + data[index].Category);
+					$('#accordion'+index).find('.description').text(data[index].Description)
 					
-
-
-
+					$('#accordion'+index).clone().attr('id','accordion'+(index+1)).insertAfter('#accordion'+index);
+					
 					console.log(data[index].Title);
-
-										//data[index].Title
-
 				});
+				//$('#sresults').last().empty();
 			}
 		}).fail(function(err){
 			console.log(err.responseText);

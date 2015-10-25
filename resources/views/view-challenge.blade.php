@@ -10,8 +10,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" id="dropdownMenu1" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" >
-		    <li><a class="cat">Athletics</a></li>
-		    <li><a class="cat">Fundraising</a></li>
+		    <li><a class="cat">All</a></li>
+		    <li><a class="cat">Sports</a></li>
+		    <li><a class="cat">Health</a></li>
 		    <li><a class="cat">Trollololol</a></li>
 		    <li><a class="cat">Running</a></li>
 		  </ul>
@@ -29,20 +30,21 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="panel-group" id="accordion0">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a id="title0" data-toggle="collapse" data-parent="#accordiondata0" href="#collapse0">Title</a>
-                </h4>
-            </div>
-            <div id="collapse0" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <p>TEXT HERE </p>
-                </div>
-            </div>
-        </div>
-
+<div id="sresults">
+	<div class="panel-group" id="accordion0" style="display: none">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	            <h4 class="panel-title">
+	                <a id="title0" data-toggle="collapse" data-parent="#accordiondata0" href="#collapse0">Title</a>
+	            </h4>
+	        </div>
+	        <div id="collapse0" class="panel-collapse collapse in">
+	            <div class="panel-body">
+	                <p class="description">TEXT HERE </p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
 {!! HTML::script('js/challenge.js') !!}
 @stop
