@@ -33,10 +33,24 @@
     var hidden = true;
     var register = false;
     function displayLoginBox(){
-        if ($("#confirmDiv:hidden")){
-            $("#confirmDiv").show();
-            $("#nameDiv").show();
-            register = true;
+        if($("#btnLogin").text() == "Login"){
+            if ($("#confirmDiv:hidden")){
+                $("#confirmDiv").show();
+                $("#nameDiv").show();
+                register = true;
+
+                $("#btnLogin").text("Register");
+                $("#regText").text("Cancel");
+                $("#register").val(1);
+            }
+        } else {
+            $("#confirmDiv").hide();
+            $("#nameDiv").hide();
+            register = false;
+
+            $("#btnLogin").text("Login");
+            $("#regText").text("Register");
+             $("#register").val(0);
         }
     }
 </script>
@@ -50,7 +64,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Challengr </a>
+      <a class="navbar-brand" href="/">Challengr </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -77,13 +91,14 @@
                 <div class="form-group" id="confirmDiv" hidden>
                     <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
                 </div>
+                <input type="hidden" id ="register" name="register" value=0>
                 <button type="submit" id="btnLogin" class="btn">Login</button>
-                <a onclick="javascript:displayLoginBox()">Register</a>
+                <a onclick="javascript:displayLoginBox()" id="regText">Register</a>
               </form>
           </ul>
         </li>
             <?php } else { //if logged in?>
-            <li><a><span class="glyphicon glyphicon-tasks"></span> Dashboard</a></li>
+            <li><a href="/dashboard"><span class="glyphicon glyphicon-tasks"></span> Dashboard</a></li>
             <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
             <?php } ?>
       </ul>
