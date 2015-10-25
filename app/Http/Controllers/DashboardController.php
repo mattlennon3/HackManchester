@@ -20,7 +20,7 @@ class DashboardController extends Controller
     	//$_SESSION['user'] = 1;
     	//$user = User::all();
     
-    	if($_SESSION['logged'] === 1){
+    	
     	$challenges = User::where('id', array(2))->get();
     	$createChallenges = Challenge::where('ChallengerID', array($_SESSION['user']))->get();
     	$gotChallenged = ChallengedUser::where('UserID', array($_SESSION['user']))->get();
@@ -45,7 +45,6 @@ class DashboardController extends Controller
     	->with('challenged', sizeof($gotChallenged))
     	->with('total', $amount)
         ->with('foryou', $result);
-    }
     }
 
 }

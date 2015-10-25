@@ -70,7 +70,7 @@ class HomeController extends Controller
             'TemplateID'=>$newTemplate['id'], 
             'BountyAmount' => $request['BountyAmount'], 
             'CharityID' => $request['CharityID'],
-            'ChallengerID' => 4
+            'ChallengerID' => $this->newUser['id'];
         ]);
 
         $newChallengedUser = new ChallengedUser;
