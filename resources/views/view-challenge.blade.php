@@ -32,10 +32,5 @@
         
     </div>
 </div>
-<script>  $(function() {
-    $( "#accordion" ).accordion({
-      collapsible: true
-    });
-  });</script>
 {!! HTML::script('js/challenge.js') !!}
 @stop
