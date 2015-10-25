@@ -10,4 +10,14 @@ use App\User;
 class ForYouController extends Controller
 {
     //
+    public function getForYou(){
+    	if (session_status() == PHP_SESSION_NONE) {
+    	    session_start();
+    	}
+    	$result = User::join('ChallengedUser', 'User.ID', '=', 'ChallengedUser.UserID')
+    					->join('Challenge', 'ChallengedUser.ChallengeID', '=','Challenge.ID')
+    					->join('Template', 'Challenge.TemplateID', '=', 'Template.ID')
+    					->where('User.ID','=',$_SESSION['user']);
+    	return $result->get();
+    }
 }

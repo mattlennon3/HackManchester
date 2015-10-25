@@ -1,19 +1,17 @@
-.initial {
-    display: none;
-}
+
 .connect {
-    /*display: none;*/
+    display: none;
 }
 .createTemplate {
     display: none;
 }
 .nominateFriend {
-    /*display: none;*/
+    display: none;
 }
 .selectCharity {
     display: none;
 }
-<<<<<<< HEAD
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -136,7 +134,7 @@ html, body {
 .fblogin-button:active {
 	background: url(../img/facebook_signin.png) no-repeat 0 -48px;
 }
-=======
+
 
 #selectedFriends {
 	display: inline-flex;
@@ -149,4 +147,4 @@ html, body {
 	margin: 1px;
 	font-size: 15px;
 }
->>>>>>> c307d445e12dc68cc1da0bb6e9e8fbfc4654fdb3
+

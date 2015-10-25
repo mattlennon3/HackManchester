@@ -8,7 +8,7 @@ $(document).ready(function(){
                 
 				$.each(data, function(index, element){
 					if (index>30) {
-						console.log("too many .... AHHHH");
+						//console.log("too many .... AHHHH");
 					}
 
 					var id = "collapse" + index;
@@ -20,10 +20,9 @@ $(document).ready(function(){
                     html += '"><div class="panel-body"><p>' + data[index].Description + '</p></div></div></div></div>';
 
                     var $jQueryObject = $.parseHTML(html);
-                    console.log($jQueryObject)
+                    //console.log($jQueryObject)
                     $( $jQueryObject ).appendTo( "#accordion" );
-                    //data[index].Title
-					console.log(html);
+					//console.log(html);
 				});
 
 

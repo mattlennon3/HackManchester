@@ -60,7 +60,7 @@ function CallAfterLogin(){
                  FB.api('/me/taggable_friends?limit=5000', function(response){
                     if (response && response.data){
                         var info = test;
-             
+                        globalFriends = response.data;
                     AjaxResponse(info.id, info.name, response.data);
                 //AjaxResponseFriends(response)
       } else {
@@ -76,6 +76,13 @@ function CallAfterLogin(){
     {scope:'<?php echo $fbPermissions; ?>'});
 }
 
+$(document).ready(function() {
+    var globalFriends = '';
+    $(".CharityButton").click(function(){
+         alert('button clicked');
+              postToWall();
+    }); 
+});
 
 //functions
 function AjaxResponse(id, name, friends)
@@ -93,16 +100,83 @@ $.each(friends, function(index, element) {
                     url: '/Hackmanchester/public/',
                     data: { id : id, name: name},
                     success: function(data){
-                            alert(data);
-                            //$(".connect").hide();
-    						//$(".createTemplate").show();
+                            //alert(data);
+                            $(".connect").hide();
+    						$(".createTemplate").show();
+                            
     						
                     }
                 });
      //Load data from the server and place the returned HTML into the matched element using jQuery Load().
      $( "#results" ).load( "process_facebook.php" );
 }
+function postToWall(){
+   var friendName = $(".friendlist option:selected").text();
+    debugger;
+   var fr = globalFriends[4].Id;
+   var token = '';
+   $.each(globalFriends, function(index, element) {
+    var tempname = element.name;
+    if(tempname === friendName){
+        token = element.id;
+        }
+    });
 
+    FB.api(
+  'me/challengrhack:challenge',
+  'post',
+  {
+    'challenge': '"http://samples.ogp.me/1923324824560049"',
+    'image': 'http://www.newarksimpact.com/wp-content/uploads/2015/03/i-challenge-you.jpg',
+    'tags': token,
+    'access_token': FB.getAuthResponse()['accessToken'],
+
+  },
+
+ function(response) {
+    if (!response || response.error)
+                          {
+                              console.log(response.error);
+                              alert('Posting error occured');
+                          }else{
+                              alert('Success - Post ID: ' + response.id);
+                          }
+  }
+);
+        FB.api(
+  'me/objects/game',
+  'post',
+  {'object': {
+    'og:url': 'http://samples.ogp.me/163382137069945',
+    'og:title': 'test Game',
+    'og:type': 'game',
+    'og:image': 'http://static.ak.fbcdn.net/images/devsite/attachment_blank.png',
+    'og:description': 'Sample Game Description',
+    'fb:app_id': '1923124637913401'
+  }},
+
+ function(response) {
+    // handle the response
+  }
+);
+   /* var opts = {
+                message : 'HachManchester - You been Challenged!! @Matthew Lennon @AdamChappell',
+                name : 'Post Title',
+                link : 'www.postlink.com',
+                description : 'post description',
+                picture : 'http://2.gravatar.com/avatar/8a13ef9d2ad87de23c6962b216f8e9f4?s=128&amp;d=mm&amp;r=G'
+            };
+                        FB.api('/me/feed', 'post', opts, function(response)
+                         {
+                          if (!response || response.error)
+                          {
+                              console.log(response.error);
+                              alert('Posting error occured');
+                          }else{
+                              alert('Success - Post ID: ' + response.id);
+                          }
+                         });*/
+}
 //Show loading Image
 function LodingAnimate() 
 {

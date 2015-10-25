@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@show');
 Route::get('/dashboard', 'DashboardController@show');
 Route::get('/byyou', 'ByYouController@getByYou');
 
+Route::get('/foryou', 'ForYouController@getForYou');
+
 // Challenges View Page
 Route::get('/challenges', 'ViewChallengeController@show');
 Route::post('/challenges', 'ViewChallengeController@returnResults');
