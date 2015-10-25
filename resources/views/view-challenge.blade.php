@@ -7,7 +7,7 @@
             width:300px;
         }
     </style>
-  <div class="container">
+  <div class="container-fluid">
       <form class="navbar-form" role="search">
           <div class ="form-group">
                 <div class="input-group col-xs-12 col-sm-12 col-md-6 col-lg-6">

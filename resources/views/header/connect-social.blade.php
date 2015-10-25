@@ -14,11 +14,12 @@ $db_name = 'demo'; //Database Name
 ###################################################################
 
 ?>
-<p>Use Fast track buttons or input fields to Connect!</p> 
-
- <a class="btn btn-block btn-social btn-facebook"  onClick="javascript:CallAfterLogin();return false;">
+<p>Connect through Facebook or Login Above!</p> 
+<div id="fbButton" class="col-xs-6 col-sm-4 col-md-3 col-lg-3 center-block">
+ <a class="btn btn-block btn-social btn-facebook"   onClick="javascript:CallAfterLogin();return false;">
     <i class="fa fa-facebook"></i> Sign in with Facebook
   </a>
+</div>
  <div id="fb-root"></div>
         <script type="text/javascript">
 window.fbAsyncInit = function() {

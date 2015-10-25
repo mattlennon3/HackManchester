@@ -13,7 +13,7 @@ class NavbarController extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        //'.bcrypt($request['password']).'
+
         $result = User::select("ID","Name")->whereRaw('Email="'.$request['email'].'" and password="'.$request['password'].'"')->get();
         if( !empty( $result ) )
         {

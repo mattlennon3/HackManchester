@@ -28,8 +28,13 @@
             width:100% !important;
         }    
     }
+    
     #logo{
         height: 50px;
+    }
+    
+    .navbar-default{
+        /*background-color:#d3d3d3;*/
     }
 </style>
 <script type="text/javascript">
