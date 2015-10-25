@@ -8,7 +8,11 @@
     }
     .initial, .connect{
         text-align:center;
+    }
+    
+    .initial, .connect, .createTemplate, .nominateFriend, .selectCharity{
         color:#fff;
+        min-height:400px;
     }
     
     .connect{
