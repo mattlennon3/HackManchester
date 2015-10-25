@@ -26,32 +26,16 @@ class HomeController extends Controller
             session_start();
         }
 
-        if($_SESSION['logged'] == 1){
-            $count = User::where('FB', [$id])->get()->count();
-            if($count != 0){
-                $currentUser = new User;
-                $currentUser = $currentUser->where('id', [$_SESSION['user']])->update(['FB' => $id]);
-            }
-        }
-        else { 
-            $user = new User;
-            $this->newUser = $user->create(array('Name' => $name, 'FB' => $id));
-        }
+        $user = new User;
+        $this->newUser = $user::create(array('Name' => $name, 'FB' => $id));
 
-		
+        $_SESSION['user'] = $this->newUser['id'];
     }
 
     public function createChallenge(Request $request){
 
-        $userID = -1;
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
-        }
-        if($_SESSION['logged'] == 0 || !isset($_SESSION['user'])){
-            $userID = $this->newUser['id'];
-        }
-        else { 
-            $userID = $_SESSION['user'];
         }
 
         $fbUser = new User;
@@ -62,7 +46,7 @@ class HomeController extends Controller
             'Title' => $request['Title'], 
             'Description' => $request['Description'], 
             'Category' => $request['Category'], 
-            'CreatorID' => $this->newUser['id'];
+            'CreatorID' => $_SESSION['user']
         ]);
 
         $newChallenge = new Challenge;
@@ -70,7 +54,7 @@ class HomeController extends Controller
             'TemplateID'=>$newTemplate['id'], 
             'BountyAmount' => $request['BountyAmount'], 
             'CharityID' => $request['CharityID'],
-            'ChallengerID' => $this->newUser['id'];
+            'ChallengerID' => $_SESSION['user']
         ]);
 
         $newChallengedUser = new ChallengedUser;
@@ -83,7 +67,7 @@ class HomeController extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        $_SESSION['user'] = 2;
+        $_SESSION['user'] = $_SESSION['user'];
         return redirect()->to('/dashboard');
     }
 }
