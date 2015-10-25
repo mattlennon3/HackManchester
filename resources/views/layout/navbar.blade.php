@@ -57,7 +57,7 @@
     <div class="collapse navbar-collapse" id="navigation-header">
       <ul class="nav navbar-nav navbar-left">
             <li><a>About Us</a></li>
-            <li><a>Leaderboards</a></li>          
+            <li><a href="/challenges">Challenges</a></li>          
         </ul>
       <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION['logged'] == 0){ //if user logged out ?>             
