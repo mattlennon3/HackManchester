@@ -28,6 +28,10 @@
         margin-right:auto !important;
         witdth:100px;
     }
+    
+    #connectFB{
+        padding-top:150px;
+    }
 </style>
 <div class="container-fluid">
   <div class="jumbotron">
