@@ -21,24 +21,28 @@ $(".NominateBack").click(function(){
 $(".CharityButton").click(function(){
 
 	var emailFriends = $('#selectedFriends > .email');
-	var emails = [];
-	$.each(emailFriends, function(index, item){
-		emails.push($(item).text());
-	});
-	console.log(emails);
 
-    var templateData = {
+    var postData = {
     	Title : $('#Title').val(),
     	Description : $('#Description').val(),
-    	Category : $('#Category').val()
-    };
+    	Category : $('#Category').val(),
 
-    var challengeData = {
+    	Name : $('#friendlist').find('option:selected').val(),
+
     	CharityID : $('#SelectCharity').val(),
     	BountyAmount : $('#totalBounty').val()
     };
 
-    console.log(templateData, challengeData);
+    $.ajax({
+    	type: 'POST',
+    	url: '/createChallenge',
+    	data: postData,
+    	success : function(data){
+    		console.log(data);
+    	}
+    }).fail(function(err){
+    	console.log(err.responseText);
+    });
 });
 $(".CharityBack").click(function(){
 	$(".selectCharity").hide();
@@ -47,7 +51,6 @@ $(".CharityBack").click(function(){
 
 
 $(document).ready(function(){
-
 
 	$('#PickCategory').bind('change', function(){
 		var text = $(this).find("option:selected").text();
@@ -98,7 +101,7 @@ function pickThis(cID){
 /*
 	Nominate-Friend
 */
-var friendCount = 0;
+var friendCount = 1;
 function addEmail(){
 	var email = $('#FriendEmail').val();
 	$('#FriendEmail').val('');

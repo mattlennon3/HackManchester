@@ -15,6 +15,8 @@ class Payment extends Model
      */
     protected $table = 'Payment';
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
