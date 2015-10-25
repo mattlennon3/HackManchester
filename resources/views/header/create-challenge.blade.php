@@ -4,6 +4,7 @@
 	}
 
 	$categories = [
+		'-1' => '-----',
 		'Sports' => 'Sports',
 		'Health' => 'Health'
 	];

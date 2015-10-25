@@ -41,7 +41,8 @@ Route::get('/facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebook
 // Header-Challenge Module
 // Post requests for ajax
 Route::post('/getChallengesByCat', 'CreateChallengeController@getChallenges');
+Route::get('/getCharities', 'SelectCharityController@getCharities');
 
+// Nav Bar
 Route::post('/login', 'NavbarController@login');
-
 Route::get('/logout', 'NavbarController@logout');

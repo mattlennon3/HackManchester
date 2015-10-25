@@ -18,12 +18,31 @@ $(".NominateBack").click(function(){
 	$(".nominateFriend").hide();
 	$(".createTemplate").show();
 });
+$(".CharityButton").click(function(){
+
+    var templateData = {
+    	Title : $('#Title').val(),
+    	Description : $('#Description').val(),
+    	Category : $('#Category').val()
+    };
+
+    var challengeData = {
+    	CharityID : $('#SelectCharity').val(),
+    	BountyAmount : $('#totalBounty').val()
+    };
+
+    console.log(templateData, challengeData);
+});
+$(".CharityBack").click(function(){
+	$(".selectCharity").hide();
+	$(".nominateFriend").show();
+});
 
 
 $(document).ready(function(){
 
 	/*$(".initial").hide();
-    $(".nominateFriend").show();*/
+    $(".createTemplate").show();*/
 
 	$('#PickCategory').bind('change', function(){
 		var text = $(this).find("option:selected").text();
@@ -43,8 +62,8 @@ $(document).ready(function(){
 					var titleDiv = $('<div></div>').attr('class', 'challenge-title').append($('<h4></h4>').append(challenges[ind].Title));
 					var descDiv = $('<div></div>').attr('class', 'challenge-desc').html(challenges[ind].Description);
 
-					var useBtn = $('<button></button>').addClass('btn btn-default').attr('onclick', 'pickThis('+ challenges[ind].ID +')').append('This one!');
-					var btnDiv = $('<div></div>').append(useBtn);
+					var useBtn = $('<button></button>').addClass('btn btn-default btn-sm').attr('onclick', 'pickThis('+ challenges[ind].ID +')').append('This one!');
+					var btnDiv = $('<div></div>').css('text-align', 'right').append(useBtn);
 					var wholeDiv = $('<div></div>').attr('id', 'c'+challenges[ind].ID).append(titleDiv).append(descDiv).append(btnDiv);
 
 					$('#searchByCatResult').append(wholeDiv);
@@ -54,6 +73,8 @@ $(document).ready(function(){
 			console.log(err.responseText);
 		});
 	});
+
+	populateCharities();
 });
 
 /*
@@ -72,6 +93,7 @@ function pickThis(cID){
 /*
 	Nominate-Friend
 */
+var friendCount = 0;
 function addEmail(){
 	var email = $('#FriendEmail').val();
 	$('#FriendEmail').val('');
@@ -82,8 +104,53 @@ function addEmail(){
 	});
 	var emailSpan = $('<span></span>').attr('class','label label-primary emailLabel').append(email).append(removeBtn);
 	$('#selectedFriends').append(emailSpan);
+
+	friendCount++;
+	updateFriendCounter();
 }
 
 function removeEmail(obj){
 	$(obj).parent().remove();
+	friendCount--;
+	updateFriendCounter();
+}
+
+/*
+	Select-Charity	
+*/
+var charities;
+function populateCharities(){
+	$.ajax({
+		url: 'getCharities',
+		type: 'GET',
+		success: function(result){
+			charities = result;
+			$('#SelectCharity').append($('<option></option>').val(-1).text('-----'));
+			$.each(charities, function(index, item){
+				$('#SelectCharity').append($('<option></option>').val(item.ID).text(item.Name));
+			});
+			console.log(charities);
+		}
+	});
+}
+
+function displayCharity(obj){
+	var index = obj.selectedIndex - 1;
+	$('#charityInfoName').text(charities[index].Name);
+	$('#charityInfoDesc').text(charities[index].Description);
+}
+
+function updateFriendCounter(){
+	$('#friendCount').text(friendCount);
+}
+
+function updateBountyPerPerson(){
+	console.log(parseFloat($('#totalBounty').val()));
+	var total = parseFloat($('#totalBounty').val());
+	$('#bpp').val(parseFloat(total / friendCount).toFixed(2));
+}
+
+function updateTotalBounty(obj){
+	var bpp = parseFloat($('#bpp').val());
+	$('#totalBounty').val(parseFloat(bpp * friendCount).toFixed(2));
 }
