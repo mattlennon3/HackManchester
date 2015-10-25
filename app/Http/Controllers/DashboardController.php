@@ -17,7 +17,7 @@ class DashboardController extends Controller
             session_start();
         }
 
-    	$_SESSION['user'] = 1;
+    	//$_SESSION['user'] = 1;
     	//$user = User::all();
     
     	if($_SESSION['logged'] === 1){
@@ -25,6 +25,13 @@ class DashboardController extends Controller
     	$createChallenges = Challenge::where('ChallengerID', array($_SESSION['user']))->get();
     	$gotChallenged = ChallengedUser::where('UserID', array($_SESSION['user']))->get();
     	$amount = 0;
+
+        $result = User::join('ChallengedUser', 'User.ID', '=', 'ChallengedUser.UserID')
+                        ->join('Challenge', 'ChallengedUser.ChallengeID', '=','Challenge.ID')
+                        ->join('Template', 'Challenge.TemplateID', '=', 'Template.ID')
+                        ->where('User.ID','=',$_SESSION['user']);
+        $result = $result->get();
+
     	//return $createChallenges;
     	foreach ($createChallenges as $chal)
 		{
@@ -36,7 +43,8 @@ class DashboardController extends Controller
     	->with('challenges', $challenges)
     	->with('created', sizeof($createChallenges))
     	->with('challenged', sizeof($gotChallenged))
-    	->with('total', $amount);
+    	->with('total', $amount)
+        ->with('foryou', $result);
     }
     }
 

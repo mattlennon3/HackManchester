@@ -14,6 +14,7 @@ class ForYouController extends Controller
     	if (session_status() == PHP_SESSION_NONE) {
     	    session_start();
     	}
+        $_SESSION['user'] = 2;
     	$result = User::join('ChallengedUser', 'User.ID', '=', 'ChallengedUser.UserID')
     					->join('Challenge', 'ChallengedUser.ChallengeID', '=','Challenge.ID')
     					->join('Template', 'Challenge.TemplateID', '=', 'Template.ID')
