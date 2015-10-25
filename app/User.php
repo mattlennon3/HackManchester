@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    use SammyK\LaravelFacebookSdk\SyncableGraphNodeTrait;
     /**
      * The database table used by the model.
      *
@@ -22,7 +21,7 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['Email', 'Password', 'CharityID', 'Location'];
+    protected $fillable = ['Email', 'Password','Name', 'CharityID', 'Location'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -30,8 +29,4 @@ class User extends Model
      * @var array
      */
     protected $hidden = ['password'];
-
-    protected static $graph_node_field_aliases = [
-        'id' => 'FB',
-    ];
 }

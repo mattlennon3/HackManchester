@@ -1,5 +1,7 @@
 <?php 
-    session_start();        
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();        
+    }
     $_SESSION['logged'] = 0;
         
     //checks if user is logged in, user would contain the id of the current logged in user 
@@ -33,9 +35,10 @@
     function displayLoginBox(){
         if ($("#confirmDiv:hidden")){
             $("#confirmDiv").show();
+            $("#nameDiv").show();
             register = true;
         }
-}
+    }
 </script>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -58,28 +61,30 @@
         </ul>
       <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION['logged'] == 0){ //if user logged out ?>             
-<!--            <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>-->
                 <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <form class="form" id="formLogin"> 
+            <form class="form" id="formLogin" action="/login" method="post"> 
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group" id="nameDiv"  hidden>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
                 <div class="form-group" id="confirmDiv" hidden>
-                    <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
                 </div>
-                <button type="button" id="btnLogin" class="btn">Login</button>
+                <button type="submit" id="btnLogin" class="btn">Login</button>
                 <a onclick="javascript:displayLoginBox()">Register</a>
               </form>
           </ul>
         </li>
             <?php } else { //if logged in?>
             <li><a>Dashboard</a></li>
-            <li><a>Sign Out</a></li>
+            <li><a href="/logout">Sign Out</a></li>
             <?php } ?>
       </ul>
     </div>
