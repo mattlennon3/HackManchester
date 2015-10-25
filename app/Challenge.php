@@ -22,7 +22,7 @@ class Challenge extends Model
      *
      * @var array
      */
-    protected $fillable = ['TemplateID', 'BountyAmount', 'Paid', 'CharityID', 'ChallengeID', 'Location', 'CreateDate'];
+    protected $fillable = ['TemplateID', 'BountyAmount', 'Paid', 'CharityID', 'ChallengeID','ChallengerID', 'Location', 'CreateDate'];
 
     /**
      * The attributes excluded from the model's JSON form.
