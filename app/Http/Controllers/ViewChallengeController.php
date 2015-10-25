@@ -16,8 +16,19 @@ class ViewChallengeController extends Controller
 
     public function returnResults(Request $request){
 
-    	//$request[0] = 12;
-    	return Template::all();
+    	$result = Template::join('User', 'Template.CreatorID','=', 'User.ID')->
+    		select('Title', 'Description', 'Category', 'User.Name');
+    		
+    	if($request['title']== NULL){
+    		$result = $result->where('Template.Title', 'LIKE', '%'.$request['title'].'%');
+    	}
+    	if($request['category']== NULL){
+    		$result = $result->where('Template.Category','=', $request['category']);
+    	}
+
+
+    	return $result->get();
+    							//->join('User', 'Template.CreatorID', 'User.ID')->get();
 
     	//$result = App\Template::join('Challenge', 'Template.ID', '=', 'Challenge.TemplateID')
     		//->where('Template.Title', 'LIKE', '%'.$request.'%')->get();
@@ -25,12 +36,6 @@ class ViewChallengeController extends Controller
 
     	//return $request[0];
 
-
-
-    	
-    	//$result = App\Template::join('Challenge', 'Template.ID', '=', 'Challenge.TemplateID')
-    	//	->where('Template.Title', 'LIKE', '%'.$title.'%')->get();
-    	//	return $result;
 
     }
 }

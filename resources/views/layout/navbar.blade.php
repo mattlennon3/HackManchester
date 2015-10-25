@@ -1,5 +1,7 @@
 <?php 
-    session_start();        
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();        
+    }
     $_SESSION['logged'] = 0;
         
     //checks if user is logged in, user would contain the id of the current logged in user 
@@ -7,7 +9,38 @@
         $_SESSION['logged'] = 1;
     }
 ?>
-<nav class="navbar navbar-default">
+<style type="text/css">
+    #formLogin{
+        padding:17px;
+        width:300px !important;
+    }
+    
+    .hidden {
+        display:none !important;
+    }
+    
+    .shown{
+        display:block !important;
+    }
+    
+    @media only screen and (max-width: 768px){
+        #formLogin{
+            width:100% !important;
+        }    
+    }
+</style>
+<script type="text/javascript">
+    var hidden = true;
+    var register = false;
+    function displayLoginBox(){
+        if ($("#confirmDiv:hidden")){
+            $("#confirmDiv").show();
+            $("#nameDiv").show();
+            register = true;
+        }
+    }
+</script>
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -28,10 +61,30 @@
         </ul>
       <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION['logged'] == 0){ //if user logged out ?>             
-            <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <ul class="dropdown-menu">
+            <form class="form" id="formLogin" action="/login" method="post"> 
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group" id="nameDiv"  hidden>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group" id="confirmDiv" hidden>
+                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
+                </div>
+                <button type="submit" id="btnLogin" class="btn">Login</button>
+                <a onclick="javascript:displayLoginBox()">Register</a>
+              </form>
+          </ul>
+        </li>
             <?php } else { //if logged in?>
-            <li><a>Dashboard</a></li>
-            <li><a>Sign Out</a></li>
+            <li><a><span class="glyphicon glyphicon-tasks"></span> Dashboard</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
             <?php } ?>
       </ul>
     </div>
