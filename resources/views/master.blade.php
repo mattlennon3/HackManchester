@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>App Name</title>
+        <title>Challengr</title>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
