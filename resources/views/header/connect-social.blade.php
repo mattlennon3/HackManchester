@@ -3,7 +3,7 @@
 ########## app ID and app SECRET (Replace with yours) #############
 $appId = '1923124637913401'; //Facebook App ID
 $appSecret = '2da0289593faf4ce0711d8305413f828'; // Facebook App Secret
-$return_url = 'http://localhost/Hackmanchester/public/';  //path to script folder
+$return_url = 'http://localhost/';  //path to script folder
 $fbPermissions = 'user_friends, publish_actions'; // more permissions : https://developers.facebook.com/docs/authentication/permissions/
 
 ########## MySql details (Replace with yours) #############
@@ -94,11 +94,11 @@ var options = $(".friendlist");
 $.each(friends, function(index, element) {
     options.append($("<option />").val(element.name).text(element.name));
    
-});
+}); 
 
             $.ajax({
                     type: "POST",
-                    url: '/Hackmanchester/public/',
+                    url: '/',
                     data: { id : id, name: name},
                     success: function(data){
                             //alert(data);
