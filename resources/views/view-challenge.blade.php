@@ -33,6 +33,7 @@
 
         
     </div>
+    <br/><br/><br/><br/><br/>
 </div>
 {!! HTML::script('js/challenge.js') !!}
 @stop

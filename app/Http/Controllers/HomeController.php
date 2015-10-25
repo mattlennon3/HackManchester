@@ -16,20 +16,43 @@ class HomeController extends Controller
 
     public function show(){
     	return view('home');
-
     }
     public function saveUser(Request $request){
+ 
+        $id = $request['id'];
+        $name = $request['name'];
 
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
-   		$id = $request['id'];
-    	$name = $request['name'];
+        if($_SESSION['logged'] == 1){
+            $count = User::where('FB', [$id])->get()->count();
+            if($count != 0){
+                $currentUser = new User;
+                $currentUser = $currentUser->where('id', [$_SESSION['user']])->update(['FB' => $id]);
+            }
+        }
+        else { 
+            $user = new User;
+            $this->newUser = $user->create(array('Name' => $name, 'FB' => $id));
+        }
 
-		$user = new User;
-		$this->newUser = $user->create(array('Name' => $name, 'FB' => $id));
-
+		
     }
 
     public function createChallenge(Request $request){
+
+        $userID = -1;
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if($_SESSION['logged'] == 0 || !isset($_SESSION['user'])){
+            $userID = $this->newUser['id'];
+        }
+        else { 
+            $userID = $_SESSION['user'];
+        }
 
         $fbUser = new User;
         $fbUser = $fbUser::create(['Name' => $request['Name']]);
@@ -39,7 +62,7 @@ class HomeController extends Controller
             'Title' => $request['Title'], 
             'Description' => $request['Description'], 
             'Category' => $request['Category'], 
-            'CreatorID' => $this->newUser['id']
+            'CreatorID' => $userID
         ]);
 
         $newChallenge = new Challenge;
@@ -47,7 +70,7 @@ class HomeController extends Controller
             'TemplateID'=>$newTemplate['id'], 
             'BountyAmount' => $request['BountyAmount'], 
             'CharityID' => $request['CharityID'],
-            'ChallengerID' => $this->newUser['id']
+            'ChallengerID' => 4
         ]);
 
         $newChallengedUser = new ChallengedUser;
@@ -60,7 +83,7 @@ class HomeController extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        $_SESSION['user'] = $this->newUser['id'];
-        return view('dashboard');
+        $_SESSION['user'] = 2;
+        return redirect()->to('/dashboard');
     }
 }

@@ -8,7 +8,11 @@
     }
     .initial, .connect{
         text-align:center;
+    }
+    
+    .initial, .connect, .createTemplate, .nominateFriend, .selectCharity{
         color:#fff;
+        min-height:400px;
     }
     
     .connect{
@@ -23,6 +27,10 @@
         margin-left: auto !important;
         margin-right:auto !important;
         witdth:100px;
+    }
+    
+    #connectFB{
+        padding-top:150px;
     }
 </style>
 <div class="container-fluid">

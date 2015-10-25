@@ -39,6 +39,7 @@ $(".CharityButton").click(function(){
     	data: postData,
     	success : function(data){
     		console.log(data);
+    		window.location.href = 'http://localhost:8000/dashboard';
     	}
     }).fail(function(err){
     	console.log(err.responseText);
