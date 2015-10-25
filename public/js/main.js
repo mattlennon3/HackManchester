@@ -134,7 +134,6 @@ function populateCharities(){
 			$.each(charities, function(index, item){
 				$('#SelectCharity').append($('<option></option>').val(item.ID).text(item.Name));
 			});
-			console.log(charities);
 		}
 	});
 }
