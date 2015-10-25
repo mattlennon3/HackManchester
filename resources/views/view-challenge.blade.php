@@ -1,10 +1,16 @@
 @extends('master')
 
 @section('content')
+
+    <style type="text/css">
+        #searchtext {
+            width:300px;
+        }
+    </style>
   <div class="container">
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form" role="search">
           <div class ="form-group">
-                <div class="input-group">
+                <div class="input-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenu1">Categories <span class="caret"></span></button>
                         <ul class="dropdown-menu">
@@ -21,22 +27,15 @@
             </div>
         </form>
     </div>
-
-<div id="sresults">
-	<div class="panel-group" id="accordion0" style="display: none">
-	    <div class="panel panel-default">
-	        <div class="panel-heading">
-	            <h4 class="panel-title">
-	                <a id="title0" data-toggle="collapse" data-parent="#accordiondata0" href="#collapse0">Title</a>
-	            </h4>
-	        </div>
-	        <div id="collapse0" class="panel-collapse collapse in">
-	            <div class="panel-body">
-	                <p class="description">TEXT HERE </p>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+<div class="bs-example">
+    <div class="panel-group" id="accordion">
+        
+    </div>
 </div>
+<script>  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  });</script>
 {!! HTML::script('js/challenge.js') !!}
 @stop
