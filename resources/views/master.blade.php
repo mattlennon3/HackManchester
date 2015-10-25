@@ -23,7 +23,7 @@
     
     
         @include('layout.navbar')
-
+        <br/>
         @yield('content')
         
         @include('layout.footer')
