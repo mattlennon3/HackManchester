@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 Select friend you would like to Challenge
 <select class="form-control friendlist" data-style="btn-primary" id="friendlist"> 
   <option value="volvo">Select Friend</option>
 </select>
-=======
+
 <?php
 
 	$socialMedia = [
@@ -66,4 +66,4 @@ Select friend you would like to Challenge
 		</div>
 	</div>
 </div>
->>>>>>> c307d445e12dc68cc1da0bb6e9e8fbfc4654fdb3
+

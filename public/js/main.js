@@ -48,11 +48,6 @@ $(".CharityBack").click(function(){
 
 $(document).ready(function(){
 
-<<<<<<< HEAD
-=======
-	/*$(".initial").hide();
-    $(".createTemplate").show();*/
->>>>>>> c307d445e12dc68cc1da0bb6e9e8fbfc4654fdb3
 
 	$('#PickCategory').bind('change', function(){
 		var text = $(this).find("option:selected").text();
@@ -87,8 +82,6 @@ $(document).ready(function(){
 	populateCharities();
 });
 
-<<<<<<< HEAD
-=======
 /*
 	Create-Challenge
 */
@@ -166,4 +159,3 @@ function updateTotalBounty(obj){
 	var bpp = parseFloat($('#bpp').val());
 	$('#totalBounty').val(parseFloat(bpp * friendCount).toFixed(2));
 }
->>>>>>> c307d445e12dc68cc1da0bb6e9e8fbfc4654fdb3
