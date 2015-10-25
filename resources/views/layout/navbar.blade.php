@@ -50,7 +50,8 @@
 
             $("#btnLogin").text("Login");
             $("#regText").text("Register");
-             $("#register").val(0);
+            $("#register").val(0);
+            $("#errMsg").hide();
         }
     }
 </script>
@@ -94,6 +95,10 @@
                 <input type="hidden" id ="register" name="register" value=0>
                 <button type="submit" id="btnLogin" class="btn">Login</button>
                 <a onclick="javascript:displayLoginBox()" id="regText">Register</a>
+                <?php if(isset($_SESSION['error']) and $_SESSION['error'] == 1){
+                        echo '<script type="text/javascript">displayLoginBox()</script>';
+                        echo '<p class="bg-danger" id="errMsg">Your passwords do not match!</p>';
+                    }?>
               </form>
           </ul>
         </li>

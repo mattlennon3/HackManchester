@@ -26,18 +26,28 @@ class NavbarController extends Controller
         $_SESSION['logged'] = 1;
         
         if($request['register'] != 0 and !isset($_SESSION['user'])){
-            //creates user
-            $user = new User;
-            $user->create(array('Email'=> $request['email'], 'Name' => $request['name'], 'Password' => $request['password']));
+            //checks the passwords match
+            $match = false;
+            if($request['password'] == $request['passwordConfirm']){
+                $match = true;
+            }
             
-            //logs user straight in
-            $result = User::select("ID","Name")->whereRaw('Email="'.$request['email'].'" and password="'.$request['password'].'"')->get();
-            if( !empty( $result ) )
-            {
-                foreach($result as $i){
-                    $_SESSION['user'] = $i->ID;
-                    $_SESSION['name'] = $i->Name;
+            if($match == true){
+                //creates user
+                $user = new User;
+                $user->create(array('Email'=> $request['email'], 'Name' => $request['name'], 'Password' => $request['password']));
+
+                //logs user straight in
+                $result = User::select("ID","Name")->whereRaw('Email="'.$request['email'].'" and password="'.$request['password'].'"')->get();
+                if( !empty( $result ) )
+                {
+                    foreach($result as $i){
+                        $_SESSION['user'] = $i->ID;
+                        $_SESSION['name'] = $i->Name;
+                    }
                 }
+            } else {
+                $_SESSION['error']=1; 
             }
         }
         
