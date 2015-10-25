@@ -9,13 +9,17 @@
 ?>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-6 form-horizontal">
 			<div class="sub-title"><h3>Nominate Friends!</h3></div>
 
-			<div class="form-group row">
-				{!! Form::label('FriendEmail', 'Email', sm(2)) !!}
-				{!! Form::text('FriendEmail', '', ['class' => '']) !!}
-				{!! Form::button('Add', ['class' => 'btn btn-default btn-sm', 'onclick' => 'addEmail()']) !!}
+			<div class="form-group">
+					{!! Form::label('FriendEmail', 'Email', ['class'=>'col-sm-2 control-label']) !!}
+				<div class="col-sm-5">
+					{!! Form::text('FriendEmail', '', ['class'=>'form-control']) !!}
+				</div>
+				<div class="col-sm-2">
+					{!! Form::button('Add', ['class' => 'btn btn-default btn-sm form-control col-sm-5', 'onclick' => 'addEmail()']) !!}
+				</div>
 			</div>
 
 			<div class="form-group row">
@@ -33,7 +37,7 @@
 
 			<div class="row">
 				<div class="col-sm-6">
-					{!! Form::select('PickSocialMedia', $socialMedia, '', ["id" => "PickSocialMedia", "style" => "width:100%"]) !!}
+					{!! Form::select('PickSocialMedia', $socialMedia, '', ["class" => "form-control", "id" => "PickSocialMedia", "style" => "width:100%"]) !!}
 				</div>
 			</div>
 

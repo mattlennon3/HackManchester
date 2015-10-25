@@ -40,7 +40,7 @@
         }
     }
 </script>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -62,7 +62,7 @@
       <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION['logged'] == 0){ //if user logged out ?>             
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login</a>
           <ul class="dropdown-menu">
             <form class="form" id="formLogin" action="/login" method="post"> 
                 <div class="form-group">
@@ -83,8 +83,8 @@
           </ul>
         </li>
             <?php } else { //if logged in?>
-            <li><a>Dashboard</a></li>
-            <li><a href="/logout">Sign Out</a></li>
+            <li><a><span class="glyphicon glyphicon-tasks"></span> Dashboard</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
             <?php } ?>
       </ul>
     </div>

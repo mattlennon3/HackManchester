@@ -1,6 +1,6 @@
 <?php
-	function sm($num){
-		return ["class" => "col-sm-".$num];
+	function sm($num, $extra=''){
+		return ["class" => "col-sm-".$num." ".$extra];
 	}
 
 	$categories = [
@@ -11,25 +11,29 @@
 ?>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-6 form-horizontal">
 			<div class="sub-title"><h3>Create Your Own</h3></div>
 
-				<div class="form-group row">
-					{!! Form::label('Title', 'Title', sm(3)) !!}
-					{!! Form::text('Title', '', sm(6)) !!}
+			<div class="form-group">
+				{!! Form::label('Title', 'Title', sm(3,'control-label')) !!}
+				<div class="col-sm-6">
+					{!! Form::text('Title', '', ['class'=>'form-control']) !!}
 				</div>
+			</div>
 
-				<div class="form-group row">
-					{!! Form::label('Description', 'Description', sm(3)) !!}
-					{!! Form::text('Description', '', sm(6)) !!}
+			<div class="form-group">
+				{!! Form::label('Description', 'Description', sm(3,'control-label')) !!}
+				<div class="col-sm-6">
+					{!! Form::text('Description', '', ['class'=>'form-control']) !!}
 				</div>
+			</div>
 
-				<div class="form-group row">
-					{!! Form::label('Category', 'Category', sm(3)) !!}
-					{!! Form::select('Category', $categories, '', sm(6)) !!}
+			<div class="form-group">
+				{!! Form::label('Category', 'Category', sm(3,'control-label')) !!}
+				<div class="col-sm-6">
+					{!! Form::select('Category', $categories, '', ['class'=>'form-control']) !!}
 				</div>
-
-			<div class="content"></div>
+			</div>
 		</div>
 
 
@@ -38,7 +42,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						{!! Form::select('PickCategory', $categories, '', ["id" => "PickCategory", "style" => "width:100%"]) !!}
+						{!! Form::select('PickCategory', $categories, '', ["id" => "PickCategory", "style" => "width:100%", 'class' => 'form-control']) !!}
 					</div>
 				</div>
 
@@ -47,8 +51,6 @@
 						
 					</div>
 				</div>
-
-			<div class="content"></div>
 		</div>
 	</div>
 
